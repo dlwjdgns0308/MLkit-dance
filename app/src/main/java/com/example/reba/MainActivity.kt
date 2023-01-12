@@ -291,53 +291,63 @@ class MainActivity : AppCompatActivity() {
                 rect_overlay.drawNeck(leftEye, rightEye, leftShoulder, rightShoulder);
             }
 
-            // 왼쪽 목
+            // 왼쪽 목 7,11
             var leftNeckAngle = getNeckAngle(leftEar, leftShoulder);
             if(leftEar != null && leftShoulder != null){
                 rect_overlay.drawLine(leftEar, leftShoulder)
                 builder.append("${leftNeckAngle.toInt()} 왼쪽 목 \n")
             }
-
-            // 오른쪽 목
+            // 오른쪽 목 8,12
             var rightNeckAngle = getNeckAngle(rightEar, rightShoulder);
             if(rightEar != null && rightShoulder != null){
                 rect_overlay.drawLine(rightEar, rightShoulder)
                 builder.append("${rightNeckAngle.toInt()} 오른쪽 목 \n")
             }
 
-            // 오른쪽 가슴
+            //왼쪽 가슴 11,23,25
+            var leftChestAngle = getAngle(leftShoulder, leftHip, leftKnee);
+            if(leftShoulder != null && leftHip != null && leftKnee != null){
+                builder.append("${leftChestAngle.toInt()} 왼쪽 가슴 \n")
+            }
+            // 오른쪽 가슴 12,24,26
             var rightChestAngle = getAngle(rightShoulder, rightHip, rightKnee);
             if(rightShoulder != null && rightHip != null && rightKnee != null){
                 builder.append("${rightChestAngle.toInt()} 오른쪽 가슴 \n")
             }
 
-            //왼쪽 가슴
-            var leftChestAngle = getAngle(leftShoulder, leftHip, leftKnee);
-            if(leftShoulder != null && leftHip != null && leftKnee != null){
-                builder.append("${leftChestAngle.toInt()} 왼쪽 가슴 \n")
+            //왼쪽 다리 23,25,27
+            var leftLegAngle = getAngle( leftHip, leftKnee,leftAnkle);
+            if( leftHip != null && leftKnee != null  && leftAnkle != null){
+
+                builder.append("${leftLegAngle.toInt()} 왼쪽 다리 \n")
             }
-
-
-            //오른쪽 다리
+            //오른쪽 다리 24,26,28
             var rightLegAngle = getAngle( rightHip, rightKnee, rightAnkle);
             if( rightHip != null && rightKnee != null  && rightAnkle != null){
 
                 builder.append("${ rightLegAngle.toInt()} 오른쪽 다리 \n")
             }
 
-            //왼쪽다리
-            var leftLegAngle = getAngle( leftHip, leftKnee,leftAnkle);
-            if( leftHip != null && leftKnee != null  && leftAnkle != null){
+            // 왼쪽 어깨 13,11,23
+            var leftShoulderAngle = getAngle( leftElbow, leftShoulder,leftHip);
+            if( leftElbow != null && leftShoulder != null  && leftHip != null){
 
-                builder.append("${leftLegAngle.toInt()} 왼쪽 다리 \n")
+                builder.append("${leftShoulderAngle.toInt()} 왼쪽 어깨 \n")
             }
-            // 왼쪽 팔
+            // 오른쪽 어깨 14,12,24
+            var rightShoulderAngle = getAngle( rightElbow, rightShoulder,rightHip);
+            if( rightElbow != null && rightShoulder != null  && rightHip != null){
+
+                builder.append("${rightShoulderAngle.toInt()} 오른쪽 어깨 \n")
+            }
+
+            // 왼쪽 팔 11,13,15
             var leftArmAngle = getAngle( leftShoulder, leftElbow,leftWrist);
             if( leftShoulder != null && leftWrist != null  && leftElbow != null){
 
                 builder.append("${leftArmAngle.toInt()} 왼쪽 팔 \n")
             }
-            // 오른쪽 팔
+            // 오른쪽 팔 12,14,16
             var rightArmAngle = getAngle( rightShoulder, rightElbow,rightWrist);
             if( rightShoulder != null && rightWrist != null  && rightElbow != null){
 
